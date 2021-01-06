@@ -21,8 +21,15 @@
         return $result;
     }
 
-    function uploadGambar(){
-        // $query = mysqli_query($this->do,"");
+    function uploadGambar($deskripsi,$gambar){
+        $temporary = $gambar['tmp_name'];
+        $namagambar = "[" . rand(0,999)  ."]". $gambar['name'];
+        $ukuran = $gambar['size'] / 1000;
+        $tipe = $gambar['type'];
+        $folder = "../upload/";
+        move_uploaded_file($temporary,$folder . $namagambar);
+        mysqli_query($this->do,"INSERT INTO daftarfoto (deskripsi,nama_asli,tipe_gambar,ukuran) VALUES('$deskripsi','$namagambar','$tipe','$ukuran')");
+        header('location:../index.php');
     }
 
 }

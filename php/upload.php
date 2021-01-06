@@ -1,7 +1,11 @@
 <?php 
     include('function.php');
     $db = new dbase;
-    
+    if(isset ($_POST["submit"])){
+        $desc = $_POST["deskripsi"];
+        $img = $_FILES["file"];
+        $db->uploadGambar($desc,$img);
+    };
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +23,7 @@
     }
 </style>
 <body>
-    <form action="" method="post">
+    <form action="" method="post"  enctype="multipart/form-data">
         <input type="text" placeholder="deskripsi" name="deskripsi">
         <input type="file" name="file">
         <button type="submit" name="submit">Upload</button>

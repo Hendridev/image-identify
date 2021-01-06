@@ -23,7 +23,7 @@
             <h3><span><?= $identify++ ?>.</span><?= $ps['deskripsi'] ?></h3>
             <p><?= $ps['nama_asli'] ?></p>
             <div class="image">
-                <img src="upload/raww.jpg" alt="">
+                <img src="upload/<?= $ps['nama_asli'] ?>" alt="">
             </div>
             <p>Ukuran: <?= $ps['ukuran'] ?>kb</p> 
             <p>Type: <?= $ps['tipe_gambar']?></p>
