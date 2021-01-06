@@ -10,8 +10,16 @@
 
 .image img {
     width: 180px;
+    height: 110px;
 }
 
 .raw {
     margin-bottom: 10px;
+    border: 1px solid;
+    padding: 10px;
+}
+
+.upload-toggle {
+    background-color: rgba(139, 122, 216, 0.116);
+    padding: 20px 10px;
 }
