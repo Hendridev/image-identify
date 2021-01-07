@@ -27,9 +27,16 @@
         $ukuran = $gambar['size'] / 1000;
         $tipe = $gambar['type'];
         $folder = "upload/";
-        move_uploaded_file($temporary,$folder . $namagambar);
-        mysqli_query($this->do,"INSERT INTO daftarfoto (deskripsi,nama_asli,tipe_gambar,ukuran) VALUES('$deskripsi','$namagambar','$tipe','$ukuran')");
+        if($ukuran < 5000 && ($tipe == 'image/png' || $tipe == 'image/jpeg' ||  $tipe == 'image/jpg' ||  $tipe == 'image/svg+xml')){
+            move_uploaded_file($temporary,$folder . $namagambar);
+            mysqli_query($this->do,"INSERT INTO daftarfoto (deskripsi,nama_asli,tipe_gambar,ukuran) VALUES('$deskripsi','$namagambar','$tipe','$ukuran')");
+            header('location:index.php');
+        }
+        else{
+            echo "<script>alert('cant handle image size or type')</script>";
+        }
     }
+    
 
 }
     

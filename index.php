@@ -6,6 +6,7 @@
         $desc = $_POST["deskripsi"];
         $gambar = $_FILES["file"];
         $db->uploadGambar($desc,$gambar);
+        // header('location:index.php');
     }
     $identify = 1;
 ?>
@@ -21,15 +22,14 @@
 <body>
     <div class="container">
         <h1>image gallery</h1>
-        <a href="php/upload.php">Upload here</a>
-        <button class='upload'>upload(onpage)</button>
         <div class="upload-toggle">
             <h3>upload here</h3>
             <form action="" method="POST" enctype="multipart/form-data" id="form">
-                <input type="text" name="deskripsi" placeholder="deskripsi">
-                <input type="file" name="file">
+                <input type="text" name="deskripsi" placeholder="deskripsi" required>
+                <input type="file" name="file" required>
                 <input type="submit" value="submit" name="submit">
             </form>
+            <p class="error"></p>
         </div>
         <?php foreach($parse as $ps) :?>
         <div class="raw">

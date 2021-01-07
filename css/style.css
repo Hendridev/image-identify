@@ -22,4 +22,5 @@
 .upload-toggle {
     background-color: rgba(139, 122, 216, 0.116);
     padding: 20px 10px;
+    border: 1px solid;
 }
